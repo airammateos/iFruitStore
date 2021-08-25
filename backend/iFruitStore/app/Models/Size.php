@@ -15,6 +15,12 @@ class Size extends Model
      * @var bool
      */
     public $timestamps = false;
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['description'];
 
     /**
      * Get the fruits for the size.
