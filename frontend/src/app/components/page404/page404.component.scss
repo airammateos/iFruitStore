@@ -1,0 +1,157 @@
+@keyframes bob {
+  0% {
+      top: 0;
+  }
+  50% {
+      top: 0.2em;
+  }
+}
+
+.im-sheep {
+  display: inline-block;
+  position: relative;
+  font-size: 1em;
+  .head, .im-ear * {
+    transition: transform 0.3s;
+  }
+
+  &::before {
+    left: 0;
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 112%;
+    width: 100%;
+    height: 18%;
+    border-radius: 100%;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .top {
+    position: relative;
+    top: 0;
+    animation: bob 1s infinite;
+  }
+
+  .body {
+    display: inline-block;
+    width: 7em;
+    height: 7em;
+    border-radius: 100%;
+    background: #C1C7D0; // $primaryColor-orange;
+    position: relative;
+    vertical-align: middle;
+    margin-right: -3em;
+  }
+
+  .im-legs {
+    display: inline-block;
+    position: absolute;
+    top: 80%;
+    left: 10%;
+    z-index: -1;
+    .im-leg {
+      display: inline-block;
+      background: #141214;
+      width: 0.5em;
+      height: 2.5em;
+      margin: 0.2em;
+    }
+  }
+
+  .head {
+    display: inline-block;
+    width: 5em;
+    height: 5em;
+    border-radius: 100%;
+    background: #253858;
+    vertical-align: middle;
+    position: relative;
+    top: 1em;
+    transform: rotate(30deg);
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 80%;
+      height: 50%;
+      background: #253858;
+      position: absolute;
+      bottom: 0;
+      right: -10%;
+      border-radius: 50% 40%;
+    }
+
+    .im-eye {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      border-radius: 100%;
+      background: white;
+      position: absolute;
+      overflow: hidden;
+      &.one {
+        right: -2%;
+        top: 1.7em;
+      }
+      &.two {
+        right: 2.5em;
+        top: 1.7em;
+      }
+      &:before {
+        content: '';
+        display: inline-block;
+        background: black;
+        width: 50%;
+        height: 50%;
+        border-radius: 100%;
+        position: absolute;
+        right: 10%;
+        bottom: 10%;
+        transition: all 0.3s;
+      }
+    }
+
+    .im-ear {
+      background: #253858;
+      width: 50%;
+      height: 30%;
+      border-radius: 100%;
+      position: absolute;
+      &.one {
+        left: -10%;
+        top: 5%;
+        transform: rotate(-30deg);
+      }
+      &.two {
+        top: 2%;
+        right: -5%;
+        transform: rotate(20deg);
+      }
+    }
+
+    &:hover {
+      .im-ear {
+        &.one,
+        &.two {
+          transform: rotate(0deg);
+        }
+      }
+    }
+  }
+
+  &:hover {
+    .head {
+      transform: rotate(0deg);
+      .im-eye {
+        width: 1.25em;
+        height: 1.25em;
+        &:before {
+          right: 30%;
+        }
+      }
+      .top {
+        animation-play-state: paused;
+      }
+    }
+  }
+}

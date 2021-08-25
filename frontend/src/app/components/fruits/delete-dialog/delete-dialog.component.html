@@ -1,0 +1,10 @@
+<div class="modal-header">
+  <h4 class="modal-title">Eliminar fruta</h4>
+</div>
+<div class="modal-body">
+  <p> Se eliminará la fruta &quot;{{fruit.name}}&quot;<br>¿Desea continuar?</p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-secondary btn-sm" (click)="this.activeModal.close()">Cancelar</button>
+  <button type="button" class="btn btn-danger btn-sm" (click)="this.activeModal.close(fruit.id)">Eliminar</button>
+</div>

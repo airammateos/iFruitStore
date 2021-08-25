@@ -1,0 +1,24 @@
+<div class="modal-header">
+  <h4 class="modal-title">Editar fruta</h4>
+</div>
+<div class="modal-body">
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="nombre" placeholder="Nombre" [(ngModel)]="fruit.name">
+    <label for="floatingInput">Nombre</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="color" placeholder="Color" [(ngModel)]="fruit.color">
+    <label for="floatingInput">Color</label>
+  </div>
+  <div class="form-floating">
+    <select class="form-select" id="size" aria-label="Tamaño" [(ngModel)]="fruit.size_id">
+      <option value="">Seleccione tamaño</option>
+      <option *ngFor="let size of sizes" value="{{size.id}}" [selected]="size.id === fruit.size_id"> {{size.description}}</option>
+    </select>
+    <label for="floatingSelect">Tamaño</label>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-secondary btn-sm" (click)="this.activeModal.close()">Cancelar</button>
+  <button type="button" class="btn btn-primary btn-sm" (click)="this.activeModal.close(fruit)">Guardar</button>
+</div>
